@@ -1,0 +1,115 @@
+<html><head>
+  <title>Aerosoft Airbus MCDU</title>
+  <meta name="viewport" content="width=device-width,initial-scale=0.6">
+  <meta http-equiv="Content-type" content="text/html; charset=windows-1252">
+  <script type="text/javascript">
+
+  function paintDisplay(imgObj) {
+    var canvasObj = document.getElementById('mcducanvas').getContext('2d');
+    canvasObj.drawImage(imgObj,19,16,273,250,0,0,370,364);
+    var imd = canvasObj.getImageData(0, 0, 370,364);
+    var numPixels = 370 * 364 * 4;
+    for (var k = 0; k < numPixels; k += 4) if (imd.data[k]==0 && imd.data[k+1]==0 && imd.data[k+2] == 0) imd.data[k+3] = 0;
+    canvasObj.putImageData(imd, 0, 0);
+  }
+  </script>
+  <style type="text/css">
+    body { background-color:black; margin:0px; }
+    #parent { position: relative;  margin-left:auto; margin-right:auto; }
+    #mcdu_background { position:absolute; width: 100%;}
+    #mcdu_display { position:absolute; left:103px; top: 72px; width: 370px; height: 364px; }
+  </style>
+</head>
+  <div id="parent">
+    <div id="mcdu_background">
+      <img src="mcdu_bg.jpg" usemap="#kb_map">
+      <map name="kb_map">
+        <area shape="rect" coords="22,124,62,152" onclick="R('l1')"> <!-- LSK 1-->
+        <area shape="rect" coords="22,174,62,202" onclick="R('l2')"> <!-- LSK 2-->
+        <area shape="rect" coords="22,223,62,251" onclick="R('l3')"> <!-- LSK 3-->
+        <area shape="rect" coords="22,273,62,301" onclick="R('l4')"> <!-- LSK 4-->
+        <area shape="rect" coords="22,322,62,350" onclick="R('l5')"> <!-- LSK 5-->
+        <area shape="rect" coords="22,372,62,400" onclick="R('l6')"> <!-- LSK 6-->
+        <area shape="rect" coords="515,124,555,152" onclick="R('r1')"> <!-- RSK 1-->
+        <area shape="rect" coords="515,174,555,202" onclick="R('r2')"> <!-- RSK 2-->
+        <area shape="rect" coords="515,223,555,251" onclick="R('r3')"> <!-- RSK 3-->
+        <area shape="rect" coords="515,273,555,301" onclick="R('r4')"> <!-- RSK 4-->
+        <area shape="rect" coords="515,322,555,350" onclick="R('r5')"> <!-- RSK 5-->
+        <area shape="rect" coords="515,372,555,400" onclick="R('r6')"> <!-- RSK 6-->
+        <area shape="rect" coords="79,470,132,506" onclick="R('dir')"> <!-- FN DIR-->
+        <area shape="rect" coords="144,470,197,506" onclick="R('prog')"> <!-- FN PRG-->
+        <area shape="rect" coords="208,470,261,506" onclick="R('perf')"> <!-- FN PRF-->
+        <area shape="rect" coords="273,470,326,506" onclick="R('int')"> <!-- FN INI-->
+        <area shape="rect" coords="337,470,390,506" onclick="R('data')"> <!-- FN DAT-->
+        <area shape="rect" coords="79,517,132,553" onclick="R('fpln')"> <!-- FN FPLN-->
+        <area shape="rect" coords="144,517,197,553" onclick="R('radnav')"> <!-- FN RADN-->
+        <area shape="rect" coords="208,517,261,553" onclick="R('fuel')" <!-- FN FUEL-->
+        <area shape="rect" coords="273,517,326,553" onclick=""> <!-- FN SECF-->
+        <area shape="rect" coords="402,517,455,553" onclick="R('mcdumenu')"> <!-- FN MENU-->
+        <area shape="rect" coords="79,565,132,601" onclick=""> <!-- FN ARPT-->
+        <area shape="rect" coords="79,612,132,648" onclick="R('left')"> <!-- AR L-->
+        <area shape="rect" coords="144,612,197,648"onclick="R('up')"> <!-- AR U-->
+        <area shape="rect" coords="79,659,132,695" onclick="R('right')"> <!-- AR R-->
+        <area shape="rect" coords="144,659,197,695" onclick="R('down')"> <!-- AR D-->
+        <area shape="rect" coords="75,720,114,759" onclick="R('1')">  <!-- AL 1-->
+        <area shape="rect" coords="127,720,166,759" onclick="R('2')"><!-- AL 2-->
+        <area shape="rect" coords="179,720,218,759" onclick="R('3')"> <!-- AL 3-->
+        <area shape="rect" coords="75,768,114,807" onclick="R('4')"> <!-- AL 4-->
+        <area shape="rect" coords="127,768,166,807" onclick="R('5')"><!-- AL 5-->
+        <area shape="rect" coords="179,768,218,807" onclick="R('6')"> <!-- AL 6-->
+        <area shape="rect" coords="75,815,114,854" onclick="R('7')"><!-- AL 7-->
+        <area shape="rect" coords="127,815,166,854"onclick="R('8')"><!-- AL 8-->
+        <area shape="rect" coords="179,815,218,854" onclick="R('9')"> <!-- AL 9-->
+        <area shape="rect" coords="75,863,114,902" onclick="R('dot')"> <!-- AL .-->
+        <area shape="rect" coords="127,863,166,902" onclick="R('0')"> <!-- AL 0-->
+        <area shape="rect" coords="179,863,218,902" onclick="R('+-')"> <!-- AL +-->
+        <area shape="rect" coords="235,584,275,624" onclick="R('a')"> <!-- AL A-->
+        <area shape="rect" coords="291,584,331,624" onclick="R('b')"> <!-- AL B-->
+        <area shape="rect" coords="348,584,388,624" onclick="R('c')"> <!-- AL C-->
+        <area shape="rect" coords="404,584,444,624" onclick="R('d')"><!-- AL D-->
+        <area shape="rect" coords="460,584,500,624" onclick="R('e')"> <!-- AL E-->
+        <area shape="rect" coords="235,639,275,679" onclick="R('f')"> <!-- AL F-->
+        <area shape="rect" coords="291,639,331,679" onclick="R('g')">  <!-- AL G-->
+        <area shape="rect" coords="348,639,388,679" onclick="R('h')">  <!-- AL H-->
+        <area shape="rect" coords="404,639,444,679" onclick="R('i')">  <!-- AL I-->
+        <area shape="rect" coords="460,639,500,679" onclick="R('j')">  <!-- AL J-->
+        <area shape="rect" coords="235,695,275,735" onclick="R('k')">  <!-- AL K-->
+        <area shape="rect" coords="291,695,331,735" onclick="R('l')">  <!-- AL L-->
+        <area shape="rect" coords="348,695,388,735" onclick="R('m')">  <!-- AL M-->
+        <area shape="rect" coords="404,695,444,735" onclick="R('n')">  <!-- AL N-->
+        <area shape="rect" coords="460,695,500,735" onclick="R('o')">  <!-- AL O-->
+        <area shape="rect" coords="235,750,275,790" onclick="R('p')">  <!-- AL P-->
+        <area shape="rect" coords="291,750,331,790" onclick="R('q')">  <!-- AL Q-->
+        <area shape="rect" coords="348,750,388,790" onclick="R('r')">  <!-- AL R-->
+        <area shape="rect" coords="404,750,444,790" onclick="R('s')">  <!-- AL S-->
+        <area shape="rect" coords="460,750,500,790" onclick="R('t')">  <!-- AL T-->
+        <area shape="rect" coords="235,806,275,846" onclick="R('u')">  <!-- AL U-->
+        <area shape="rect" coords="291,806,331,846" onclick="R('v')">  <!-- AL V-->
+        <area shape="rect" coords="348,806,388,846" onclick="R('w')">  <!-- AL W-->
+        <area shape="rect" coords="404,806,444,846" onclick="R('x')">  <!-- AL X-->
+        <area shape="rect" coords="460,806,500,846" onclick="R('y')">  <!-- AL Y-->
+        <area shape="rect" coords="235,861,275,901" onclick="R('z')">  <!-- AL Z-->
+        <area shape="rect" coords="291,861,331,901" onclick="R('slash')"> <!-- AL /-->
+        <area shape="rect" coords="348,861,388,901" onclick="R('parent.btn('/MCDU_KB_66')"> <!-- AL SP-->
+        <area shape="rect" coords="404,861,444,901" onclick="R('parent.btn('/MCDU_KB_67')"> <!-- AL OVFY-->
+        <area shape="rect" coords="460,861,500,901" onclick="R('clr')"> <!-- AL CLR-->
+      </map>
+    </div>
+	
+    <div id="mcdu_display">
+      <canvas id="mcducanvas" width="370" height="364">
+    </canvas></div>
+  </div>
+<script type="text/javascript">
+  var v,c;
+  var l=document.getElementById('parent');
+  l.addEventListener('touchstart',function(e){v=e.touches.length!=1?false:true;c=document.elementFromPoint(e.touches[0].pageX,e.touches[0].pageY);});
+  l.addEventListener('touchend',function(e){e.preventDefault();if(v){c.click();v=false;}});
+  function R(a) {
+    var xhttp = new XMLHttpRequest();
+	xhttp.open("post", "M.html", true);
+	xhttp.send(a);
+  }
+</script>
+
+</body></html>
