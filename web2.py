@@ -5,11 +5,11 @@ import xpc
 client=xpc.XPlaneConnect()
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if(self.path =="/M.html"): 
-            SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
-        gear_dref = "sim/custom/xap/mcdu/click_" + self.path[1:]
-        client.sendDREF(gear_dref, 1)
-        self.path="M.html"
+      #  if(self.path =="/M.html"): 
+      #      SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
+       # gear_dref = "sim/custom/xap/mcdu/click_" + self.path[1:]
+        #client.sendDREF(gear_dref, 1)
+        #self.path="M.html"
         SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
         
     def do_POST(self):
@@ -24,7 +24,7 @@ class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         print path
         print args
         
-PORT = 800
+PORT = 110
  
 Handler = ServerHandler
  
@@ -32,6 +32,4 @@ httpd = SocketServer.TCPServer(("", PORT), Handler)
  
 print "serving at port", PORT
 httpd.serve_forever()
-
-
-        
+      
